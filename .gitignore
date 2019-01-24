@@ -1,0 +1,10 @@
+# MacOS .DS_Store file
+.DS_Store
+
+# .swp files
+*.swp
+
+# Terragrunt cache
+.terragrunt-cache/
+
+
