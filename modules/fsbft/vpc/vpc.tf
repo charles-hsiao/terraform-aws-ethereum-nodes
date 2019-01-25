@@ -1,8 +1,8 @@
-resource "aws_vpc" "default" {
+resource "aws_vpc" "fsbft-vpc" {
   cidr_block = "${var.vpc_cidr}"
   enable_dns_hostnames = true
 
   tags {
-    Name = "test-vpc"
+    Name = "${var.environment}-${var.project}-vpc"
   }
 }
