@@ -5,6 +5,8 @@ resource "aws_vpc" "fsbft-vpc" {
 
   tags {
     Name = "${var.environment}-${var.project}-vpc"
+    Project = "${var.project}"
+    Environment = "${var.environment}"
   }
 }
 
@@ -16,5 +18,8 @@ resource "aws_subnet" "fsbft-public-subnet-a" {
 
   tags {
     Name = "${var.environment}-${var.project}-public-a"
+    Project = "${var.project}"
+    Environment = "${var.environment}"
+    SubnetType = "public"
   }
 }
