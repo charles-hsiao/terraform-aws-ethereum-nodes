@@ -24,11 +24,11 @@ Below is the folder structure of this project
 │               ├── geth-nodes (Roles)
 │               │   └── terraform.tfvars
 │               ├── terraform.tfvars
-│               └── vpc (Base Network)
+│               └── vpc 
 │                   └── terraform.tfvars
-└── modules
-    └── fsbft
-        ├── geth-nodes
+└── modules (Terraform Modules)
+    └── fsbft (Project)
+        ├── geth-nodes (Roles)
         │   ├── asg.tf
         │   └── ...
         └── vpc
