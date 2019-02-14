@@ -8,7 +8,7 @@ resource "aws_instance" "geth-nodes-ct" {
   instance_type = "${var.ct_instance_type}"
   key_name = "${var.ssh_key}"
   count = 1
-  vpc_security_group_ids = [ "${aws_security_group.geth-nodes.id}" ]
+  vpc_security_group_ids = [ "${aws_security_group.geth-nodes-ct.id}" ]
   subnet_id = "${element(data.aws_subnet_ids.fsbft-public.ids, count.index)}"
   monitoring = false
 
