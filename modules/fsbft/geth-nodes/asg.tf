@@ -27,7 +27,7 @@ resource "aws_launch_configuration" "geth-nodes" {
 }
 
 # TODO: Use Packer AMI later
-# Official Ubuntu 16.04
+# Official Ubuntu 18.04
 data "aws_ami" "ami-geth-nodes" {
   most_recent = true
   owners      = ["099720109477"] # Canonical
@@ -44,7 +44,7 @@ data "aws_ami" "ami-geth-nodes" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-*"]
   }
 }
 
