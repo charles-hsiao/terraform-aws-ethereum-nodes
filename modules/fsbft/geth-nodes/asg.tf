@@ -26,11 +26,9 @@ resource "aws_launch_configuration" "geth-nodes" {
   }
 }
 
-# TODO: Use Packer AMI later
-# Official Ubuntu 18.04
 data "aws_ami" "ami-geth-nodes" {
   most_recent = true
-  owners      = ["099720109477"] # Canonical
+  owners      = ["765677258940"] 
 
   filter {
     name   = "virtualization-type"
@@ -44,7 +42,7 @@ data "aws_ami" "ami-geth-nodes" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-*"]
+    values = ["${var.geth_ami_name}"]
   }
 }
 

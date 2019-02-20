@@ -27,15 +27,17 @@ role = "geth-nodes"
 ssh_key = "ssh-fsbft"
 
 # geth-nodes
+geth_ami_name = "geth-nodes-ubuntu-1804-*"
 instance_min_size = 1
-instance_max_size = 50
-instance_desired_capacity = 1
+instance_max_size = 19
+instance_desired_capacity = 2
 nodes_instance_type = "t2.micro"
 nodes_root_volume_type = "gp2"
-nodes_root_volume_size = "8"
+nodes_root_volume_size = "16"
 nodes_root_volume_iops = "100"
 
 # geth-nodes-ct
+ct_ami_name = "geth-nodes-ct-ubuntu-1804-*"
 ct_instance_type = "t2.micro"
 ct_root_volume_type = "gp2"
 ct_root_volume_size = "8"
