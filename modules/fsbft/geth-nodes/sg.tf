@@ -29,7 +29,7 @@ resource "aws_security_group_rule" "egress-geth-nodes-ct" {
   cidr_blocks = ["0.0.0.0/0"]
 }
 
-resource "aws_security_group_rule" "ingress-geth-nodes-ct" {
+resource "aws_security_group_rule" "ingress-geth-nodes-ct-ssh" {
   type              = "ingress"
   security_group_id = "${aws_security_group.geth-nodes-ct.id}"
 
@@ -59,7 +59,7 @@ resource "aws_security_group_rule" "egress-geth-nodes" {
   cidr_blocks = ["0.0.0.0/0"]
 }
 
-resource "aws_security_group_rule" "ingress-geth-nodes" {
+resource "aws_security_group_rule" "ingress-geth-nodes-ssh" {
   type              = "ingress"
   security_group_id = "${aws_security_group.geth-nodes.id}"
 
@@ -67,4 +67,34 @@ resource "aws_security_group_rule" "ingress-geth-nodes" {
   to_port     = 22
   protocol    = "tcp"
   source_security_group_id = "${aws_security_group.geth-nodes-ct.id}"
+}
+
+resource "aws_security_group_rule" "ingress-geth-nodes-peer-tcp" {
+  type              = "ingress"
+  security_group_id = "${aws_security_group.geth-nodes.id}"
+
+  from_port   = 30301
+  to_port     = 30351
+  protocol    = "tcp"
+  cidr_blocks = ["0.0.0.0/0"]
+}
+
+resource "aws_security_group_rule" "ingress-geth-nodes-peer-udp" {
+  type              = "ingress"
+  security_group_id = "${aws_security_group.geth-nodes.id}"
+
+  from_port   = 30301
+  to_port     = 30351
+  protocol    = "udp"
+  cidr_blocks = ["0.0.0.0/0"]
+}
+
+resource "aws_security_group_rule" "ingress-geth-nodes-rpc" {
+  type              = "ingress"
+  security_group_id = "${aws_security_group.geth-nodes.id}"
+
+  from_port   = 8543
+  to_port     = 8593
+  protocol    = "tcp"
+  cidr_blocks = ["0.0.0.0/0"]
 }
