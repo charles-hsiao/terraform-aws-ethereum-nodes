@@ -10,6 +10,8 @@ resource "aws_launch_configuration" "geth-nodes" {
   key_name             = "${var.ssh_key}"
   ebs_optimized        = false
 
+  associate_public_ip_address = true
+
   lifecycle {
     create_before_destroy = true
 
