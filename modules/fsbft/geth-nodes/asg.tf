@@ -54,7 +54,7 @@ data "aws_ami" "ami-geth-nodes" {
 
 resource "aws_autoscaling_group" "geth-nodes" {
   name                 = "${var.environment}-${var.project}-${var.role}"
-  launch_configuration = "${aws_launch_configuration.geth-nodes.id}"
+  launch_configuration = "${aws_launch_configuration.geth-nodes.name}"
   availability_zones   = ["${data.aws_availability_zones.available.names}"]
   vpc_zone_identifier  = ["${element(data.aws_subnet_ids.fsbft-public.ids, count.index)}"]
   #vpc_zone_identifier       = ["${ split(",", var.private_subnet_ids) }"]
