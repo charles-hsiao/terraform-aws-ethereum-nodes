@@ -9,7 +9,7 @@ terragrunt = {
       encrypt        = true
       bucket         = "fsbft-terraform-repo"
       key            = "fsbft/stag/ap-southeast-1/${path_relative_to_include()}/terraform.tfstate"
-      region         = "ap-southeast-1"
+      region         = "us-west-2"
       dynamodb_table = "fsbft-terraform-repo-state-lock"
       profile = "fsbft"
     }
@@ -20,7 +20,7 @@ terragrunt = {
     extra_arguments "bucket" {
       commands = ["${get_terraform_commands_that_need_vars()}"]
       arguments = [
-        "-var", "ap-southeast-1",
+        "-var", "aws_region=ap-southeast-1",
         "-var", "environment=stag"
       ]
       required_var_files = [
